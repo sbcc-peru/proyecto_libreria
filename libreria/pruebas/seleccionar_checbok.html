@@ -1,0 +1,67 @@
+<script src="jquery-2.1.1.min.js"></script>
+
+
+<style>
+.record_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.record_table tr:hover {
+    background: #eee;
+}
+.record_table td {
+    border: 1px solid #eee;
+}
+.highlight_row {
+    background: #eee;
+}
+</style>
+<table class="record_table">
+    <tr>
+        <td>
+            <input type="checkbox" />
+        </td>
+        <td>Hello</td>
+        <td>Hello</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" />
+        </td>
+        <td>Hello</td>
+        <td>Hello</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" />
+        </td>
+        <td>Hello</td>
+        <td>Hello</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" />
+        </td>
+        <td>Hello</td>
+        <td>Hello</td>
+    </tr>
+</table>
+<script>
+$(document).ready(function () {
+    $('.record_table tr').click(function (event) {
+        if (event.target.type !== 'checkbox') {
+            $(':checkbox', this).trigger('click');
+        }
+    });
+
+    $("input[type='checkbox']").change(function (e) {
+        if ($(this).is(":checked")) {
+            $(this).closest('tr').addClass("highlight_row");
+        } else {
+            $(this).closest('tr').removeClass("highlight_row");
+        }
+    });
+});
+</script>
+
+http://jsfiddle.net/FbHAV/2/

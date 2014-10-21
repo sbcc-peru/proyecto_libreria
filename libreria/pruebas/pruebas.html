@@ -1,0 +1,56 @@
+<script src="jquery-2.1.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('table tbody tr').click(function(){
+        alert($(this).text());
+    });
+});
+</script>
+<style>
+table tbody tr:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+</style>
+
+
+<html>
+<head></head>
+<body>
+</body>
+<table class="tbl">
+  <caption>Version History Table</caption>
+
+  <thead>   
+    <tr>
+      <th>Change Date</th>
+      <th>Change Type</th>
+      <th>Description</th>
+      <th>StaffID</th>
+    </tr>   
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>16/04/2010 07:30</td>
+      <td>Edit</td>
+      <td>New role</td>
+      <td>00215</td>
+    </tr>
+    <tr>
+      <td>15/02/2012 14:37</td>
+      <td>Edit</td>
+      <td>Out of stock</td>
+      <td>85487</td>
+    </tr>
+    <tr>
+      <td>14/03/2013 10:18</td>
+      <td>Add</td>
+      <td>Out of date</td>
+      <td>15748</td>
+    </tr>              
+  </tbody>
+  
+  </table>
+  </html>

@@ -1,0 +1,35 @@
+<?php
+/*$host="localhost"; // Host name
+$username="root"; // Mysql username
+$password="slin2005"; // Mysql password
+$db_name="sistema_tesis"; // Database name
+*/
+$host="localhost"; // Host name
+$username="avicolad_cutti"; // Mysql username
+$password="cutti1990"; // Mysql password
+$db_name="avicolad_sistemas"; // Database name
+
+	$con = mysql_connect($host,$username,$password)   or die(mysql_error());
+	mysql_select_db($db_name, $con)  or die(mysql_error());
+
+$q = strtolower($_GET["q"]);
+if (!$q) return;
+
+//$sql = "select dni, CONCAT(nombres,'  | ',dni)as nombres from usuarios where nombres like '%$q%'";
+$sql = "
+SELECT s.id_cliente,c.rsocial,s.pago,s.fecha from(
+select * from deuda where id_reg in (select MAX(id_reg)id_reg from deuda where not fecha=DATE('0000-00-00' ) and not  estado_saldo=999  
+ GROUP BY id_cliente  ) ORDER BY id_cliente) as s inner join cliente c on c.id_cliente=s.id_cliente  where c.rsocial like '%$q%' ";
+$rsd = mysql_query($sql);
+while($rs = mysql_fetch_array($rsd)) {
+	$cid = $rs['id_cliente'];
+	//echo "$cname\n";
+	$cname = $rs['rsocial'];
+	$pago = $rs['pago'];
+	$fecha = $rs['fecha'];
+	//$salida = $rs['id_cliente'];
+	//echo "$cname|$cid|$salida\n";
+		echo "$cname|$cid|$pago|$fecha\n";
+
+}
+?>

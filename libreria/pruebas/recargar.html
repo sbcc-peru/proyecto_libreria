@@ -1,0 +1,24 @@
+
+<html>
+  <head>
+   <title>Ejemplo prueba loading ajax</title>
+   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+   <script type="text/javascript">
+         function  efecto(){
+                             $('#fotocargando').hide();
+                             $('#cargar_contenido').fadeIn(1500);
+        }
+   </script>
+  </head>
+  <body onload="efecto();">
+
+     <div id="fotocargando" style="width:100%;text-align: center;">
+                <img src="img/cargando.gif">
+     </div>
+
+     <div id="cargar_contenido" style="display:none;">
+         
+     <div>
+
+  </body>
+</html>
